@@ -27,7 +27,6 @@
             min-height: 100vh;
         }
 
-        /* الهيدر العلوي */
         .top-nav {
             width: 100%;
             background: rgba(0,0,0,0.9);
@@ -54,7 +53,6 @@
             text-shadow: 0 0 30px rgba(255, 102, 0, 0.4);
         }
 
-        /* نظام الأزرار (Tabs) */
         .tabs-container {
             display: flex;
             gap: 10px;
@@ -78,23 +76,21 @@
         .tab-btn.active {
             background: var(--primary-orange);
             color: black;
-            border-color: var(--primary-orange);
             box-shadow: 0 0 15px rgba(255, 102, 0, 0.4);
         }
 
-        /* محتوى القوانين */
         .content-section {
-            display: none; /* مخفي افتراضياً */
-            width: 90%;
-            max-width: 1100px;
+            display: none;
+            width: 95%;
+            max-width: 1200px;
             margin: 0 auto 50px auto;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 12px;
         }
 
         .content-section.active {
-            display: grid; /* يظهر فقط عند التفعيل */
-            animation: fadeIn 0.5s ease;
+            display: grid;
+            animation: fadeIn 0.4s ease;
         }
 
         @keyframes fadeIn {
@@ -105,11 +101,18 @@
         .rule-card {
             background: var(--card-bg);
             border-right: 4px solid var(--primary-orange);
-            padding: 18px;
+            padding: 15px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             border-radius: 4px;
+            border-left: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .rule-desc {
+            font-size: 15px;
+            font-weight: 600;
+            padding-left: 10px;
         }
 
         .rule-action {
@@ -117,15 +120,14 @@
             color: var(--primary-orange);
             padding: 4px 10px;
             border-radius: 4px;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: bold;
             border: 1px solid var(--primary-orange);
             white-space: nowrap;
         }
 
-        .rule-action.red { background: #660000; color: #ff4444; border-color: #ff4444; }
+        .rule-action.red { background: #440000; color: #ff4444; border-color: #ff4444; }
 
-        /* حماية التغبيش */
         #main-wrapper { transition: filter 0.4s; }
     </style>
 </head>
@@ -156,47 +158,61 @@
     </div>
 
     <div id="general" class="content-section">
-        <div class="rule-card"><span>1 - استخدام الثغرات</span><span class="rule-action">Warn 1</span></div>
-        <div class="rule-card"><span>2 - عدم الخوف على حياتك</span><span class="rule-action">Warn</span></div>
-        <div class="rule-card"><span>3 - القذف والشتم</span><span class="rule-action red">Perm Banned</span></div>
-        <div class="rule-card"><span>4 - ايم اسست (هاك)</span><span class="rule-action red">Perm Banned</span></div>
-        <div class="rule-card"><span>5 - (VDM) صدم عشوائي</span><span class="rule-action">Warn 2</span></div>
-        <div class="rule-card"><span>6 - (RDM) قتل عشوائي</span><span class="rule-action">Warn 2</span></div>
-        <div class="rule-card"><span>7 - عدم احترام الجمس</span><span class="rule-action">Warn 2</span></div>
-        <div class="rule-card"><span>8 - التدخل في سيناريو</span><span class="rule-action">Warn 1</span></div>
-        <div class="rule-card"><span>9 - الكذب على الجمس</span><span class="rule-action">Warn 2</span></div>
-        <div class="rule-card"><span>10 - الخروج أثناء السيناريو</span><span class="rule-action">Warn 1</span></div>
-        <div style="grid-column: 1/-1; text-align: center; color: #555;">... باقي الـ 35 قانوناً تظهر هنا ...</div>
+        <div class="rule-card"><span class="rule-desc">1 - استخدام الثغرات</span><span class="rule-action">Warn 1</span></div>
+        <div class="rule-card"><span class="rule-desc">2 - عدم الخوف على حياتك</span><span class="rule-action">Warn</span></div>
+        <div class="rule-card"><span class="rule-desc">3 - (VDM) الصدم العشوائي</span><span class="rule-action">Warn 2</span></div>
+        <div class="rule-card"><span class="rule-desc">4 - (RDM) القتل العشوائي</span><span class="rule-action">Warn 2</span></div>
+        <div class="rule-card"><span class="rule-desc">5 - فعل وهو غير متواجد</span><span class="rule-action">Warn</span></div>
+        <div class="rule-card"><span class="rule-desc">6 - القذف والشتم</span><span class="rule-action red">Banned Perm</span></div>
+        <div class="rule-card"><span class="rule-desc">7 - عدم احترام الجمس</span><span class="rule-action">Warn 2</span></div>
+        <div class="rule-card"><span class="rule-desc">8 - التدخل في سيناريو</span><span class="rule-action">Warn 1</span></div>
+        <div class="rule-card"><span class="rule-desc">9 - تشفير الألفاظ</span><span class="rule-action">Warn 1</span></div>
+        <div class="rule-card"><span class="rule-desc">10 - ايم اسست (هاك)</span><span class="rule-action red">Banned Perm</span></div>
+        <div class="rule-card"><span class="rule-desc">11 - الكذب على الجمس</span><span class="rule-action">Warn 2</span></div>
+        <div class="rule-card"><span class="rule-desc">12 - الخروج عن الـ RP</span><span class="rule-action">Warn</span></div>
+        <div class="rule-card"><span class="rule-desc">13 - القانون الذهبي</span><span class="rule-action">Warn 2</span></div>
+        <div class="rule-card"><span class="rule-desc">14 - نشر للاعضاء</span><span class="rule-action red">Banned Perm</span></div>
+        <div class="rule-card"><span class="rule-desc">15 - تهديد بسلاح بمكان آمن</span><span class="rule-action">Warn</span></div>
+        <div class="rule-card"><span class="rule-desc">16 - تدخل في شؤون إدارية</span><span class="rule-action">Warn 2</span></div>
+        <div class="rule-card"><span class="rule-desc">17 - إزعاج في الـ ايفري</span><span class="rule-action">Warn</span></div>
+        <div class="rule-card"><span class="rule-desc">18 - خروج وقت السيناريو</span><span class="rule-action">Warn 1</span></div>
+        <div class="rule-card"><span class="rule-desc">19 - عدم التوقف بـ 3 كفرات</span><span class="rule-action">Warn</span></div>
+        <div class="rule-card"><span class="rule-desc">20 - تعديل سيارة منقلبة</span><span class="rule-action">Warn</span></div>
+        <div class="rule-card"><span class="rule-desc">21 - رفع تكت بدون دليل</span><span class="rule-action">Warn</span></div>
+        <div class="rule-card"><span class="rule-desc">22 - فعل وهو مكلبش</span><span class="rule-action">Warn 1</span></div>
+        <div class="rule-card"><span class="rule-desc">23 - عدم الانصياع للجمس</span><span class="rule-action">Warn 2</span></div>
+        <div class="rule-card"><span class="rule-desc">24 - خطف/تهديد مكان آمن</span><span class="rule-action">Warn</span></div>
+        <div class="rule-card"><span class="rule-desc">25 - ميتاتاق (خارج/داخل)</span><span class="rule-action">Warn 2</span></div>
+        <div class="rule-card"><span class="rule-desc">26 - كفرات مدرعة</span><span class="rule-action">Warn 2</span></div>
+        <div class="rule-card"><span class="rule-desc">27 - التدبيل</span><span class="rule-action">Warn 2</span></div>
+        <div class="rule-card"><span class="rule-desc">28 - كلام وأنت مسقط</span><span class="rule-action">Warn 1</span></div>
+        <div class="rule-card"><span class="rule-desc">29 - استخدام شيء ليس معك</span><span class="rule-action">Warn 1</span></div>
+        <div class="rule-card"><span class="rule-desc">30 - إطلاق أثناء القيادة</span><span class="rule-action">Warn 1</span></div>
+        <div class="rule-card"><span class="rule-desc">31 - سلاح ثقيل بدون حقيبة</span><span class="rule-action red">باند شهر</span></div>
+        <div class="rule-card"><span class="rule-desc">32 - نقل معلومات (جاسوس)</span><span class="rule-action">Warn 3</span></div>
+        <div class="rule-card"><span class="rule-desc">33 - توازن الحوار والطلق</span><span class="rule-action">توجيه</span></div>
+        <div class="rule-card"><span class="rule-desc">34 - عدم تسجيل دخول الرحلة</span><span class="rule-action">1 Day</span></div>
+        <div class="rule-card"><span class="rule-desc">35 - عدم فتح الخريطة/أيديات</span><span class="rule-action">Warn 2</span></div>
     </div>
 
     <div id="durations" class="content-section">
-        <div class="rule-card"><span>Warn (تحذير بسيط)</span><span class="rule-action">يوم واحد</span></div>
-        <div class="rule-card"><span>Warn 1</span><span class="rule-action">4 أيام</span></div>
-        <div class="rule-card"><span>Warn 2</span><span class="rule-action">8 أيام</span></div>
-        <div class="rule-card"><span>Warn 3</span><span class="rule-action">12 يوم</span></div>
-        <div class="rule-card"><span>عقوبة الإداري</span><span class="rule-action">2X العقوبة</span></div>
+        <div class="rule-card"><span>Warn (تحذير بسيط)</span><span class="rule-action">1 Day</span></div>
+        <div class="rule-card"><span>Warn 1</span><span class="rule-action">4 Days</span></div>
+        <div class="rule-card"><span>Warn 2</span><span class="rule-action">8 Days</span></div>
+        <div class="rule-card"><span>Warn 3</span><span class="rule-action">12 Days</span></div>
+        <div class="rule-card"><span>عقوبة الإداري</span><span class="rule-action">2x Penalty</span></div>
+        <div class="rule-card"><span>عقوبة المسؤول</span><span class="rule-action">4x Penalty</span></div>
     </div>
 </div>
 
 <script>
-    // وظيفة التنقل بين الأقسام
     function showTab(tabId) {
-        // إخفاء كل الأقسام
-        document.querySelectorAll('.content-section').forEach(section => {
-            section.classList.remove('active');
-        });
-        // إزالة اللون من كل الأزرار
-        document.querySelectorAll('.tab-btn').forEach(btn => {
-            btn.classList.remove('active');
-        });
-        
-        // إظهار القسم المختار
+        document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
         document.getElementById(tabId).classList.add('active');
-        // تلوين الزر المختار
         event.currentTarget.classList.add('active');
     }
 
-    // تغبيش الشاشة للحماية
     window.addEventListener('blur', () => { document.getElementById('main-wrapper').style.filter = "blur(40px)"; });
     window.addEventListener('focus', () => { document.getElementById('main-wrapper').style.filter = "blur(0px)"; });
 </script>
