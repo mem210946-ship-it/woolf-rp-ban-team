@@ -3,180 +3,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex, nofollow">
-    <title>WC ROLEPLAY - RULES</title>
+    <title>WC ROLEPLAY - OFFICIAL RULES</title>
     <style>
-        /* إعدادات الحماية والمنع */
+        :root {
+            --primary-orange: #ff6600;
+            --dark-bg: #121212;
+            --card-bg: #1a1a1a;
+        }
+
         * {
+            box-sizing: border-box;
             user-select: none;
             -webkit-user-select: none;
-            -webkit-touch-callout: none;
-            -webkit-tap-highlight-color: transparent;
         }
 
         body {
-            background-color: #000;
-            color: #000;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--dark-bg);
+            /* إضافة النقوش الخلفية كما في الصورة */
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(255, 102, 0, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(255, 102, 0, 0.05) 0%, transparent 20%);
+            color: white;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
-            padding: 15px;
-            overflow-x: hidden;
-        }
-
-        .main-container {
-            max-width: 900px;
-            margin: auto;
-            border: 4px solid #ff6600;
-            background-color: #ff6600; 
-            box-shadow: 0 0 30px rgba(255, 102, 0, 0.5);
-        }
-
-        .header {
-            background-color: #000;
-            color: #ff6600;
-            padding: 20px 10px;
-            text-align: center;
-            font-size: 24px;
-            font-weight: bold;
-            border-bottom: 4px solid #ff6600;
-        }
-
-        .sub-header {
-            background-color: #331a00;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-            font-size: 18px;
-            font-weight: bold;
-        }
-
-        .rules-section {
-            padding: 10px;
-        }
-
-        .rule-item {
-            background-color: rgba(0, 0, 0, 0.05);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-            padding: 12px 10px;
-            font-size: 17px;
-            font-weight: 700;
-            line-height: 1.5;
+            padding: 0;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
         }
 
-        .rule-item.internal {
-            background-color: rgba(0, 0, 0, 0.15);
-            color: #000;
+        /* الهيدر العلوي كما في الصورة */
+        .top-nav {
+            width: 100%;
+            background: rgba(0,0,0,0.8);
+            padding: 10px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
-        .penalty-tag {
-            background-color: #000;
-            color: #ff6600;
-            padding: 4px 12px;
-            border-radius: 5px;
-            font-size: 14px;
-            white-space: nowrap;
-            margin-right: 15px;
+        .logo-text {
+            color: var(--primary-orange);
+            font-weight: 900;
+            font-size: 20px;
+            letter-spacing: 1px;
         }
 
-        .duration-table {
-            background-color: #000;
-            color: #fff;
-            margin-top: 20px;
-            padding: 20px;
+        /* عنوان الموقع الكبير */
+        .hero-section {
             text-align: center;
-            border-top: 4px solid #fff;
+            padding: 60px 20px;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), transparent);
+            width: 100%;
         }
 
-        .duration-title {
-            color: #ff6600;
-            font-size: 22px;
-            margin-bottom: 15px;
-            text-decoration: underline;
+        .hero-title {
+            font-size: clamp(40px, 8vw, 70px);
+            font-weight: 900;
+            color: var(--primary-orange);
+            text-transform: uppercase;
+            margin: 0;
+            text-shadow: 0 0 20px rgba(255, 102, 0, 0.3);
         }
 
-        #main-content { transition: filter 0.4s ease; }
+        .hero-subtitle {
+            color: #888;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        /* شريط الأقسام (Tabs) */
+        .tabs-container {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            overflow-x: auto;
+            width: 100%;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .tab-btn {
+            background: var(--card-bg);
+            border: 1px solid rgba(255,102,0,0.3);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .tab-btn.active {
+            background: var(--primary-orange);
+            color: black;
+        }
+
+        /* شبكة القوانين - مظهر الجداول في الصورة */
+        .rules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 15px;
+            width: 90%;
+            max-width: 1200px;
+            margin-bottom: 50px;
+        }
+
+        .rule-card {
+            background: var(--card-bg);
+            border-left: 4px solid var(--primary-orange);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.2s;
+        }
+
+        .rule-card:hover {
+            transform: scale(1.02);
+            background: #222;
+        }
+
+        .rule-desc {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .rule-action {
+            background: rgba(255,102,0,0.1);
+            color: var(--primary-orange);
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            border: 1px solid var(--primary-orange);
+            text-transform: uppercase;
+        }
+
+        .rule-action.perm {
+            background: #ff0000;
+            color: white;
+            border: none;
+        }
+
+        /* حماية التغبيش */
+        #main-wrapper { transition: filter 0.5s ease; }
     </style>
 </head>
-<body oncontextmenu="return false;" onkeydown="return false;">
+<body>
 
-<div id="main-content" class="main-container">
-    <div class="header">
-        نظام المخالفات والجزاءات - WC ROLEPLAY
+<div class="top-nav">
+    <div class="logo-text">WC ROLEPLAY</div>
+    <div style="font-size: 12px; color: #666;">نظام الإدارة والرقابة العام</div>
+</div>
+
+<div id="main-wrapper" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+    
+    <div class="hero-section">
+        <h1 class="hero-title">WC ROLEPLAY</h1>
+        <div class="hero-subtitle">النظام الأساسي للقوانين والجزاءات لعام 2026</div>
     </div>
 
-    <div class="sub-header">نظام الباند الخاص بأعضاء التيم</div>
-    <div class="rules-section">
-        <div class="rule-item internal">1 - عدم كتابة الأستبيان بشكل صحيح <span class="penalty-tag">تحذير</span></div>
-        <div class="rule-item internal">2 - عدم محاسبة شخص وهو يستحق المحاسبة <span class="penalty-tag">تحذير</span></div>
-        <div class="rule-item internal">3 - محاسبة شخص بدون دلائل واضحه <span class="penalty-tag">تحذير</span></div>
-        <div class="rule-item internal">4 - الواسطة <span class="penalty-tag" style="background: red; color: white;">فصل من التيم</span></div>
-        <div class="rule-item internal">5 - فك باند عن صديق دون وجه حق <span class="penalty-tag">فصل مباشر + 2X عقوبة</span></div>
+    <div class="tabs-container">
+        <div class="tab-btn active">قوانين التيم</div>
+        <div class="tab-btn">قوانين عامة</div>
+        <div class="tab-btn">نظام مدد العقوبات</div>
     </div>
 
-    <div class="sub-header">قوانين السيرفر العامة</div>
-    <div class="rules-section">
-        <div class="rule-item">1 - استخدام الثغرات <span class="penalty-tag">Warn 1</span></div>
-        <div class="rule-item">2 - عدم الخوف على حياتك <span class="penalty-tag">Warn</span></div>
-        <div class="rule-item">3 - (VDM) الصدم العشوائي <span class="penalty-tag">Warn 2</span></div>
-        <div class="rule-item">4 - (RDM) القتل العشوائي <span class="penalty-tag">Warn 2</span></div>
-        <div class="rule-item">5 - القيام بفعل وهو غير متواجد في المكان <span class="penalty-tag">Warn</span></div>
-        <div class="rule-item" style="color: #800000;">6 - القذف <span class="penalty-tag" style="background: red; color: white;">Banned Perm</span></div>
-        <div class="rule-item">7 - عدم احترام الجمس <span class="penalty-tag">Warn 2</span></div>
-        <div class="rule-item">8 - التدخل في سيناريو <span class="penalty-tag">Warn 1</span></div>
-        <div class="rule-item">9 - تشفير الألفاظ <span class="penalty-tag">Warn 1</span></div>
-        <div class="rule-item" style="color: #800000;">10 - ايم اسست <span class="penalty-tag" style="background: red; color: white;">Banned Perm</span></div>
-        <div class="rule-item">11 - الكذب على جمس <span class="penalty-tag">Warn 2</span></div>
-        <div class="rule-item">12 - الخروج عن الـ RP أثناء القيم <span class="penalty-tag">Warn</span></div>
-        <div class="rule-item">13 - قانون ذهبي <span class="penalty-tag">Warn 2</span></div>
-        <div class="rule-item" style="color: #800000;">14 - نشر للاعضاء <span class="penalty-tag" style="background: red; color: white;">Banned Perm</span></div>
-        <div class="rule-item">15 - يهدد بسلاح بمكان آمن <span class="penalty-tag">Warn</span></div>
-        <div class="rule-item">16 - التدخل في الشؤون الإدارية <span class="penalty-tag">Warn 2</span></div>
-        <div class="rule-item">17 - إزعاج في الـ ايفري <span class="penalty-tag">Warn</span></div>
-        <div class="rule-item">18 - تخرج وانت في نص سيناريو <span class="penalty-tag">Warn 1</span></div>
-        <div class="rule-item">19 - تنفقع 3 كفارات وما توقف <span class="penalty-tag">Warn</span></div>
-        <div class="rule-item">20 - تعدل سيارتك وهي منقلبه <span class="penalty-tag">Warn</span></div>
-        <div class="rule-item">21 - رفع تكت بدون دليل <span class="penalty-tag">Warn</span></div>
-        <div class="rule-item">22 - يسوي شي وهو مكلبش <span class="penalty-tag">Warn 1</span></div>
-        <div class="rule-item">23 - عدم الانصياع للجمس <span class="penalty-tag">Warn 2</span></div>
-        <div class="rule-item">24 - الخطف او التهديد ف مكان امن <span class="penalty-tag">Warn</span></div>
-        <div class="rule-item">25 - تدخل شي خارج الرول إلى داخل الرول <span class="penalty-tag">Warn 2</span></div>
-        <div class="rule-item">26 - كفرات مدرعة (ماتنفقع) <span class="penalty-tag">Warn 2</span></div>
-        <div class="rule-item">27 - التدبيل <span class="penalty-tag">Warn 2</span></div>
-        <div class="rule-item">28 - تتكلم وإنت مسقط او عدم رجوع موقع إسقاطك <span class="penalty-tag">Warn 1</span></div>
-        <div class="rule-item">29 - تستخدم شيء مو معك في الحقيبة <span class="penalty-tag">Warn 1</span></div>
-        <div class="rule-item">30 - تطلق وانت تسوق <span class="penalty-tag">Warn 1</span></div>
-        <div class="rule-item">31 - استخدام السلاح الثقيل بدون حقيبة <span class="penalty-tag">باند شهر</span></div>
-        <div class="rule-item">32 - عسكري ينقل معلومات لعصابة والعكس <span class="penalty-tag">Warn 3</span></div>
-        <div class="rule-item">33 - توازن اللعب: الحوار 75% والطلق 25% <span class="penalty-tag">توجيه</span></div>
-        <div class="rule-item">34 - عدم تسجيل دخولك عند الرحلة <span class="penalty-tag">1 Day</span></div>
-        <div class="rule-item" style="background: rgba(0,0,0,0.15);">35 - عدم فتح الخريطة والأيديات <span class="penalty-tag">Warn 2</span></div>
-    </div>
-
-    <div class="duration-table">
-        <div class="duration-title">نظام مدد العقوبات (WC)</div>
-        <p>Warn = 1 Day | Warn 1 = 4 Days</p>
-        <p>Warn 2 = 8 Days | Warn 3 = 12 Days</p>
-        <p style="font-size: 13px; color: #ff6600;">الإداري = 2x | المسؤولين = 4x</p>
+    <div class="rules-grid">
+        <div class="rule-card"><span class="rule-desc">1 - عدم كتابة الأستبيان بشكل صحيح</span><span class="rule-action">تحذير</span></div>
+        <div class="rule-card"><span class="rule-desc">2 - عدم محاسبة شخص يستحق</span><span class="rule-action">تحذير</span></div>
+        <div class="rule-card"><span class="rule-desc">3 - محاسبة شخص بدون دلائل</span><span class="rule-action">تحذير</span></div>
+        <div class="rule-card"><span class="rule-desc">4 - الواسطة</span><span class="rule-action perm">فصل نهائي</span></div>
+        <div class="rule-card"><span class="rule-desc">5 - فك باند صديق دون حق</span><span class="rule-action perm">فصل + 2X</span></div>
+        
+        <div class="rule-card"><span class="rule-desc">6 - استخدام الثغرات</span><span class="rule-action">Warn 1</span></div>
+        <div class="rule-card"><span class="rule-desc">7 - القذف والشتم</span><span class="rule-action perm">Banned Perm</span></div>
+        <div class="rule-card"><span class="rule-desc">8 - ايم اسست</span><span class="rule-action perm">Banned Perm</span></div>
+        <div class="rule-card"><span class="rule-desc">9 - عدم احترام الجمس</span><span class="rule-action">Warn 2</span></div>
+        <div class="rule-card"><span class="rule-desc">10 - الخروج أثناء السيناريو</span><span class="rule-action">Warn 1</span></div>
     </div>
 </div>
 
 <script>
-    // تغبيش الشاشة عند مغادرة التبويب
+    // الحماية من التصوير والتغبيش
     window.addEventListener('blur', () => {
-        document.getElementById('main-content').style.filter = "blur(40px)";
+        document.getElementById('main-wrapper').style.filter = "blur(50px)";
     });
     window.addEventListener('focus', () => {
-        document.getElementById('main-content').style.filter = "blur(0px)";
+        document.getElementById('main-wrapper').style.filter = "blur(0px)";
     });
 
-    // حماية إضافية من الفحص والنسخ
+    // منع الاختصارات
     document.addEventListener('keydown', function(e) {
-        if (e.ctrlKey && (e.key === 'u' || e.key === 'i' || e.key === 'j')) {
-            e.preventDefault();
-        }
+        if (e.ctrlKey || e.keyCode == 123) e.preventDefault();
     });
 </script>
 
