@@ -6,7 +6,7 @@
     <meta name="robots" content="noindex, nofollow">
     <title>WC ROLEPLAY - RULES</title>
     <style>
-        /* منع النسخ والتحديد تماماً */
+        /* إعدادات الحماية والمنع */
         * {
             user-select: none;
             -webkit-user-select: none;
@@ -97,11 +97,10 @@
             text-decoration: underline;
         }
 
-        /* تأثير التغبيش عند مغادرة الصفحة */
         #main-content { transition: filter 0.4s ease; }
     </style>
 </head>
-<body oncontextmenu="return false;" onkeydown="return false;" ondragstart="return false;">
+<body oncontextmenu="return false;" onkeydown="return false;">
 
 <div id="main-content" class="main-container">
     <div class="header">
@@ -114,8 +113,7 @@
         <div class="rule-item internal">2 - عدم محاسبة شخص وهو يستحق المحاسبة <span class="penalty-tag">تحذير</span></div>
         <div class="rule-item internal">3 - محاسبة شخص بدون دلائل واضحه <span class="penalty-tag">تحذير</span></div>
         <div class="rule-item internal">4 - الواسطة <span class="penalty-tag" style="background: red; color: white;">فصل من التيم</span></div>
-        <div class="rule-item internal">5 - التكبر على الأعضاء أو المشرفين <span class="penalty-tag">فصل من الإدارة</span></div>
-        <div class="rule-item internal">6 - فك باند عن صديق دون وجه حق <span class="penalty-tag">فصل مباشر + 2X عقوبة</span></div>
+        <div class="rule-item internal">5 - فك باند عن صديق دون وجه حق <span class="penalty-tag">فصل مباشر + 2X عقوبة</span></div>
     </div>
 
     <div class="sub-header">قوانين السيرفر العامة</div>
@@ -154,7 +152,7 @@
         <div class="rule-item">32 - عسكري ينقل معلومات لعصابة والعكس <span class="penalty-tag">Warn 3</span></div>
         <div class="rule-item">33 - توازن اللعب: الحوار 75% والطلق 25% <span class="penalty-tag">توجيه</span></div>
         <div class="rule-item">34 - عدم تسجيل دخولك عند الرحلة <span class="penalty-tag">1 Day</span></div>
-        <div class="rule-item">35 - عدم فتح الخريطة والأيديات <span class="penalty-tag">Warn 2</span></div>
+        <div class="rule-item" style="background: rgba(0,0,0,0.15);">35 - عدم فتح الخريطة والأيديات <span class="penalty-tag">Warn 2</span></div>
     </div>
 
     <div class="duration-table">
@@ -166,14 +164,7 @@
 </div>
 
 <script>
-    // إخفاء الكود المصدري ومنع المعاينة
-    document.addEventListener('keydown', function(e) {
-        if (e.ctrlKey && (e.key === 'u' || e.key === 's' || e.key === 'i' || e.key === 'j')) {
-            e.preventDefault();
-        }
-    });
-
-    // تغبيش الشاشة عند محاولة أخذ لقطة شاشة أو الخروج من الصفحة
+    // تغبيش الشاشة عند مغادرة التبويب
     window.addEventListener('blur', () => {
         document.getElementById('main-content').style.filter = "blur(40px)";
     });
@@ -181,10 +172,12 @@
         document.getElementById('main-content').style.filter = "blur(0px)";
     });
 
-    // منع فتح أدوات المطورين
-    setInterval(function() {
-        debugger;
-    }, 100);
+    // حماية إضافية من الفحص والنسخ
+    document.addEventListener('keydown', function(e) {
+        if (e.ctrlKey && (e.key === 'u' || e.key === 'i' || e.key === 'j')) {
+            e.preventDefault();
+        }
+    });
 </script>
 
 </body>
