@@ -59,7 +59,6 @@
             justify-content: center;
             margin-bottom: 30px;
             padding: 0 10px;
-            flex-wrap: wrap;
         }
 
         .tab-btn {
@@ -135,7 +134,7 @@
 
 <div class="top-nav">
     <div style="color: var(--primary-orange); font-weight: 900;">WC ROLEPLAY</div>
-    <div style="font-size: 12px;">نظام الإدارة الرسمي</div>
+    <div style="font-size: 12px;">نظام القوانين الرسمي</div>
 </div>
 
 <div id="main-wrapper">
@@ -144,20 +143,11 @@
     </div>
 
     <div class="tabs-container">
-        <button class="tab-btn active" onclick="showTab('team')">قوانين التيم</button>
-        <button class="tab-btn" onclick="showTab('general')">قوانين عامة</button>
+        <button class="tab-btn active" onclick="showTab('general')">قوانين عامة</button>
         <button class="tab-btn" onclick="showTab('durations')">مدد العقوبات</button>
     </div>
 
-    <div id="team" class="content-section active">
-        <div class="rule-card"><span>1 - عدم كتابة الأستبيان بشكل صحيح</span><span class="rule-action">تحذير</span></div>
-        <div class="rule-card"><span>2 - عدم محاسبة شخص وهو يستحق</span><span class="rule-action">تحذير</span></div>
-        <div class="rule-card"><span>3 - محاسبة شخص بدون دلائل</span><span class="rule-action">تحذير</span></div>
-        <div class="rule-card"><span>4 - الواسطة</span><span class="rule-action red">فصل نهائي</span></div>
-        <div class="rule-card"><span>5 - فك باند عن صديق دون حق</span><span class="rule-action red">فصل + 2X</span></div>
-    </div>
-
-    <div id="general" class="content-section">
+    <div id="general" class="content-section active">
         <div class="rule-card"><span class="rule-desc">1 - استخدام الثغرات</span><span class="rule-action">Warn 1</span></div>
         <div class="rule-card"><span class="rule-desc">2 - عدم الخوف على حياتك</span><span class="rule-action">Warn</span></div>
         <div class="rule-card"><span class="rule-desc">3 - (VDM) الصدم العشوائي</span><span class="rule-action">Warn 2</span></div>
@@ -213,7 +203,8 @@
         event.currentTarget.classList.add('active');
     }
 
-    window.addEventListener('blur', () => { document.getElementById('main-wrapper').style.filter = "blur(40px)"; });
+    // تغبيش عند الخروج
+    window.addEventListener('blur', () => { document.getElementById('main-wrapper').style.filter = "blur(50px)"; });
     window.addEventListener('focus', () => { document.getElementById('main-wrapper').style.filter = "blur(0px)"; });
 </script>
 
