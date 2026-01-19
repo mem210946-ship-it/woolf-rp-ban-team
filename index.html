@@ -3,143 +3,174 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WC ROLEPLAY - OFFICIAL RULES</title>
+    <title>WC ROLEPLAY | القوانين الرسمية</title>
     <style>
         :root {
-            --primary-orange: #ff6600;
-            --dark-bg: #0a0a0a;
-            --card-bg: #161616;
-        }
-
-        * {
-            box-sizing: border-box;
-            user-select: none;
-            -webkit-user-select: none;
+            --primary: #ff6600;
+            --primary-glow: rgba(255, 102, 0, 0.3);
+            --bg-dark: #050505;
+            --card-bg: rgba(25, 25, 25, 0.7);
         }
 
         body {
-            background-color: var(--dark-bg);
-            background-image: radial-gradient(circle at 50% -20%, #331a00 0%, transparent 50%);
-            color: white;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            background-image: 
+                radial-gradient(circle at 50% 0%, #221100 0%, transparent 50%),
+                linear-gradient(rgba(255,102,0,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,102,0,0.02) 1px, transparent 1px);
+            background-size: 100% 100%, 30px 30px, 30px 30px;
+            color: #e0e0e0;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             margin: 0;
-            padding: 0;
-            min-height: 100vh;
+            overflow-x: hidden;
         }
 
+        /* الهيدر الزجاجي */
         .top-nav {
-            width: 100%;
-            background: rgba(0,0,0,0.9);
+            backdrop-filter: blur(15px);
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 2px solid var(--primary);
             padding: 15px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 2px solid var(--primary-orange);
             position: sticky;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 900;
+            color: var(--primary);
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px var(--primary-glow);
         }
 
         .hero-section {
+            padding: 60px 20px;
             text-align: center;
-            padding: 40px 20px;
         }
 
         .hero-title {
-            font-size: clamp(35px, 8vw, 65px);
+            font-size: clamp(40px, 10vw, 80px);
             font-weight: 900;
-            color: var(--primary-orange);
             margin: 0;
-            text-shadow: 0 0 30px rgba(255, 102, 0, 0.4);
+            background: linear-gradient(to bottom, #fff, var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 20px var(--primary-glow));
         }
 
+        /* الأزرار المطورة */
         .tabs-container {
             display: flex;
-            gap: 10px;
             justify-content: center;
-            margin-bottom: 30px;
-            padding: 0 10px;
+            gap: 15px;
+            margin-bottom: 40px;
         }
 
         .tab-btn {
             background: var(--card-bg);
-            border: 1px solid rgba(255,102,0,0.4);
-            color: #aaa;
-            padding: 12px 25px;
-            border-radius: 5px;
+            border: 1px solid rgba(255,255,255,0.1);
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 8px;
             cursor: pointer;
             font-weight: bold;
-            transition: 0.3s;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(5px);
+        }
+
+        .tab-btn:hover {
+            border-color: var(--primary);
+            transform: translateY(-3px);
         }
 
         .tab-btn.active {
-            background: var(--primary-orange);
-            color: black;
-            box-shadow: 0 0 15px rgba(255, 102, 0, 0.4);
+            background: var(--primary);
+            color: #000;
+            box-shadow: 0 0 25px var(--primary-glow);
+            border-color: var(--primary);
         }
 
+        /* البطاقات المطورة */
         .content-section {
             display: none;
-            width: 95%;
+            width: 90%;
             max-width: 1200px;
-            margin: 0 auto 50px auto;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 12px;
+            margin: 0 auto 100px;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
         }
 
-        .content-section.active {
-            display: grid;
-            animation: fadeIn 0.4s ease;
-        }
+        .content-section.active { display: grid; animation: slideUp 0.5s ease-out; }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         .rule-card {
             background: var(--card-bg);
-            border-right: 4px solid var(--primary-orange);
-            padding: 15px;
+            border: 1px solid rgba(255,255,255,0.05);
+            border-right: 5px solid var(--primary);
+            padding: 20px;
+            border-radius: 12px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-radius: 4px;
-            border-left: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .rule-card:hover {
+            background: rgba(40, 40, 40, 0.8);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 15px rgba(255,102,0,0.1);
+            transform: scale(1.03);
         }
 
         .rule-desc {
-            font-size: 15px;
-            font-weight: 600;
-            padding-left: 10px;
+            font-size: 16px;
+            font-weight: 500;
+            color: #fff;
         }
 
         .rule-action {
+            font-size: 11px;
+            font-weight: 800;
+            padding: 6px 12px;
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 1px solid var(--primary);
+            color: var(--primary);
             background: rgba(255,102,0,0.1);
-            color: var(--primary-orange);
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: bold;
-            border: 1px solid var(--primary-orange);
-            white-space: nowrap;
         }
 
-        .rule-action.red { background: #440000; color: #ff4444; border-color: #ff4444; }
+        .rule-action.red {
+            border-color: #ff3333;
+            color: #ff3333;
+            background: rgba(255,51,51,0.1);
+            box-shadow: 0 0 10px rgba(255,51,51,0.2);
+        }
 
-        #main-wrapper { transition: filter 0.4s; }
+        /* حماية التغبيش */
+        #main-wrapper { transition: filter 0.5s; }
     </style>
 </head>
 <body>
 
 <div class="top-nav">
-    <div style="color: var(--primary-orange); font-weight: 900;">WC ROLEPLAY</div>
-    <div style="font-size: 12px;">نظام القوانين الرسمي</div>
+    <div class="logo">WC ROLEPLAY</div>
+    <div style="color: #666; font-size: 13px;">OFFICIAL RULES & REGULATIONS</div>
 </div>
 
 <div id="main-wrapper">
     <div class="hero-section">
         <h1 class="hero-title">WC ROLEPLAY</h1>
+        <p style="color: #888; margin-top: 15px;">النظام الموحد لقوانين مدينة وورلد كلاس</p>
     </div>
 
     <div class="tabs-container">
@@ -148,41 +179,41 @@
     </div>
 
     <div id="general" class="content-section active">
-        <div class="rule-card"><span class="rule-desc">1 - استخدام الثغرات</span><span class="rule-action">Warn 1</span></div>
-        <div class="rule-card"><span class="rule-desc">2 - عدم الخوف على حياتك</span><span class="rule-action">Warn</span></div>
-        <div class="rule-card"><span class="rule-desc">3 - (VDM) الصدم العشوائي</span><span class="rule-action">Warn 2</span></div>
-        <div class="rule-card"><span class="rule-desc">4 - (RDM) القتل العشوائي</span><span class="rule-action">Warn 2</span></div>
-        <div class="rule-card"><span class="rule-desc">5 - فعل وهو غير متواجد</span><span class="rule-action">Warn</span></div>
-        <div class="rule-card"><span class="rule-desc">6 - القذف والشتم</span><span class="rule-action red">Banned Perm</span></div>
-        <div class="rule-card"><span class="rule-desc">7 - عدم احترام الجمس</span><span class="rule-action">Warn 2</span></div>
-        <div class="rule-card"><span class="rule-desc">8 - التدخل في سيناريو</span><span class="rule-action">Warn 1</span></div>
-        <div class="rule-card"><span class="rule-desc">9 - تشفير الألفاظ</span><span class="rule-action">Warn 1</span></div>
-        <div class="rule-card"><span class="rule-desc">10 - ايم اسست (هاك)</span><span class="rule-action red">Banned Perm</span></div>
-        <div class="rule-card"><span class="rule-desc">11 - الكذب على الجمس</span><span class="rule-action">Warn 2</span></div>
-        <div class="rule-card"><span class="rule-desc">12 - الخروج عن الـ RP</span><span class="rule-action">Warn</span></div>
-        <div class="rule-card"><span class="rule-desc">13 - القانون الذهبي</span><span class="rule-action">Warn 2</span></div>
-        <div class="rule-card"><span class="rule-desc">14 - نشر للاعضاء</span><span class="rule-action red">Banned Perm</span></div>
-        <div class="rule-card"><span class="rule-desc">15 - تهديد بسلاح بمكان آمن</span><span class="rule-action">Warn</span></div>
-        <div class="rule-card"><span class="rule-desc">16 - تدخل في شؤون إدارية</span><span class="rule-action">Warn 2</span></div>
-        <div class="rule-card"><span class="rule-desc">17 - إزعاج في الـ ايفري</span><span class="rule-action">Warn</span></div>
-        <div class="rule-card"><span class="rule-desc">18 - خروج وقت السيناريو</span><span class="rule-action">Warn 1</span></div>
-        <div class="rule-card"><span class="rule-desc">19 - عدم التوقف بـ 3 كفرات</span><span class="rule-action">Warn</span></div>
-        <div class="rule-card"><span class="rule-desc">20 - تعديل سيارة منقلبة</span><span class="rule-action">Warn</span></div>
-        <div class="rule-card"><span class="rule-desc">21 - رفع تكت بدون دليل</span><span class="rule-action">Warn</span></div>
-        <div class="rule-card"><span class="rule-desc">22 - فعل وهو مكلبش</span><span class="rule-action">Warn 1</span></div>
-        <div class="rule-card"><span class="rule-desc">23 - عدم الانصياع للجمس</span><span class="rule-action">Warn 2</span></div>
-        <div class="rule-card"><span class="rule-desc">24 - خطف/تهديد مكان آمن</span><span class="rule-action">Warn</span></div>
-        <div class="rule-card"><span class="rule-desc">25 - ميتاتاق (خارج/داخل)</span><span class="rule-action">Warn 2</span></div>
-        <div class="rule-card"><span class="rule-desc">26 - كفرات مدرعة</span><span class="rule-action">Warn 2</span></div>
-        <div class="rule-card"><span class="rule-desc">27 - التدبيل</span><span class="rule-action">Warn 2</span></div>
-        <div class="rule-card"><span class="rule-desc">28 - كلام وأنت مسقط</span><span class="rule-action">Warn 1</span></div>
-        <div class="rule-card"><span class="rule-desc">29 - استخدام شيء ليس معك</span><span class="rule-action">Warn 1</span></div>
-        <div class="rule-card"><span class="rule-desc">30 - إطلاق أثناء القيادة</span><span class="rule-action">Warn 1</span></div>
-        <div class="rule-card"><span class="rule-desc">31 - سلاح ثقيل بدون حقيبة</span><span class="rule-action red">باند شهر</span></div>
-        <div class="rule-card"><span class="rule-desc">32 - نقل معلومات (جاسوس)</span><span class="rule-action">Warn 3</span></div>
-        <div class="rule-card"><span class="rule-desc">33 - توازن الحوار والطلق</span><span class="rule-action">توجيه</span></div>
-        <div class="rule-card"><span class="rule-desc">34 - عدم تسجيل دخول الرحلة</span><span class="rule-action">1 Day</span></div>
-        <div class="rule-card"><span class="rule-desc">35 - عدم فتح الخريطة/أيديات</span><span class="rule-action">Warn 2</span></div>
+        <div class="rule-card"><span>1 - استخدام الثغرات</span><span class="rule-action">Warn 1</span></div>
+        <div class="rule-card"><span>2 - عدم الخوف على حياتك</span><span class="rule-action">Warn</span></div>
+        <div class="rule-card"><span>3 - (VDM) الصدم العشوائي</span><span class="rule-action">Warn 2</span></div>
+        <div class="rule-card"><span>4 - (RDM) القتل العشوائي</span><span class="rule-action">Warn 2</span></div>
+        <div class="rule-card"><span>5 - فعل وهو غير متواجد</span><span class="rule-action">Warn</span></div>
+        <div class="rule-card"><span>6 - القذف والشتم</span><span class="rule-action red">Banned Perm</span></div>
+        <div class="rule-card"><span>7 - عدم احترام الجمس</span><span class="rule-action">Warn 2</span></div>
+        <div class="rule-card"><span>8 - التدخل في سيناريو</span><span class="rule-action">Warn 1</span></div>
+        <div class="rule-card"><span>9 - تشفير الألفاظ</span><span class="rule-action">Warn 1</span></div>
+        <div class="rule-card"><span>10 - ايم اسست (هاك)</span><span class="rule-action red">Banned Perm</span></div>
+        <div class="rule-card"><span>11 - الكذب على الجمس</span><span class="rule-action">Warn 2</span></div>
+        <div class="rule-card"><span>12 - الخروج عن الـ RP</span><span class="rule-action">Warn</span></div>
+        <div class="rule-card"><span>13 - القانون الذهبي</span><span class="rule-action">Warn 2</span></div>
+        <div class="rule-card"><span>14 - نشر للاعضاء</span><span class="rule-action red">Banned Perm</span></div>
+        <div class="rule-card"><span>15 - تهديد بسلاح بمكان آمن</span><span class="rule-action">Warn</span></div>
+        <div class="rule-card"><span>16 - تدخل في شؤون إدارية</span><span class="rule-action">Warn 2</span></div>
+        <div class="rule-card"><span>17 - إزعاج في الـ ايفري</span><span class="rule-action">Warn</span></div>
+        <div class="rule-card"><span>18 - خروج وقت السيناريو</span><span class="rule-action">Warn 1</span></div>
+        <div class="rule-card"><span>19 - عدم التوقف بـ 3 كفرات</span><span class="rule-action">Warn</span></div>
+        <div class="rule-card"><span>20 - تعديل سيارة منقلبة</span><span class="rule-action">Warn</span></div>
+        <div class="rule-card"><span>21 - رفع تكت بدون دليل</span><span class="rule-action">Warn</span></div>
+        <div class="rule-card"><span>22 - فعل وهو مكلبش</span><span class="rule-action">Warn 1</span></div>
+        <div class="rule-card"><span>23 - عدم الانصياع للجمس</span><span class="rule-action">Warn 2</span></div>
+        <div class="rule-card"><span>24 - خطف/تهديد مكان آمن</span><span class="rule-action">Warn</span></div>
+        <div class="rule-card"><span>25 - ميتاتاق (خارج/داخل)</span><span class="rule-action">Warn 2</span></div>
+        <div class="rule-card"><span>26 - كفرات مدرعة</span><span class="rule-action">Warn 2</span></div>
+        <div class="rule-card"><span>27 - التدبيل</span><span class="rule-action">Warn 2</span></div>
+        <div class="rule-card"><span>28 - كلام وأنت مسقط</span><span class="rule-action">Warn 1</span></div>
+        <div class="rule-card"><span>29 - استخدام شيء ليس معك</span><span class="rule-action">Warn 1</span></div>
+        <div class="rule-card"><span>30 - إطلاق أثناء القيادة</span><span class="rule-action">Warn 1</span></div>
+        <div class="rule-card"><span>31 - سلاح ثقيل بدون حقيبة</span><span class="rule-action red">باند شهر</span></div>
+        <div class="rule-card"><span>32 - نقل معلومات (جاسوس)</span><span class="rule-action">Warn 3</span></div>
+        <div class="rule-card"><span>33 - توازن الحوار والطلق</span><span class="rule-action">توجيه</span></div>
+        <div class="rule-card"><span>34 - عدم تسجيل دخول الرحلة</span><span class="rule-action">1 Day</span></div>
+        <div class="rule-card"><span>35 - عدم فتح الخريطة/أيديات</span><span class="rule-action">Warn 2</span></div>
     </div>
 
     <div id="durations" class="content-section">
@@ -203,8 +234,8 @@
         event.currentTarget.classList.add('active');
     }
 
-    // تغبيش عند الخروج
-    window.addEventListener('blur', () => { document.getElementById('main-wrapper').style.filter = "blur(50px)"; });
+    // تأثير التغبيش للحماية
+    window.addEventListener('blur', () => { document.getElementById('main-wrapper').style.filter = "blur(60px)"; });
     window.addEventListener('focus', () => { document.getElementById('main-wrapper').style.filter = "blur(0px)"; });
 </script>
 
