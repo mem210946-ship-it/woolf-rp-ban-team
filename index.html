@@ -94,7 +94,7 @@
             text-decoration: underline;
         }
 
-        /* حماية الشاشة: تغبيش عند الخروج من المتصفح */
+        /* حماية الشاشة */
         @media screen {
             #main-content { transition: filter 0.3s; }
         }
@@ -109,11 +109,12 @@
 
     <div class="sub-header">نظام الباند الخاص بأعضاء التيم</div>
     <div class="rules-section">
-        <div class="rule-item internal">1 - إرسال استبيان مخالف أو ناقص <span class="penalty-tag"> تحذير</span></div>
-        <div class="rule-item internal">2 - التكبر على الأعضاء أو المشرفين <span class="penalty-tag">فصل من الإدارة</span></div>
-        <div class="rule-item internal">3 - عدم كتابة استبيان الباند بشكل صحيح <span class="penalty-tag">تحذير شفوي</span></div>
-        <div class="rule-item internal">4 - الاستماع للإدارة العليا/الفاوندر وبند شخص بناءً عليه <span class="penalty-tag">فصل من التيم</span></div>
-        <div class="rule-item internal">5 - فك باند عن صديق دون وجه حق <span class="penalty-tag">فصل مباشر + 2X عقوبة</span></div>
+        <div class="rule-item internal">1 - عدم كتابة الأستبيان بشكل صحيح <span class="penalty-tag">تحذير</span></div>
+        <div class="rule-item internal">2 - عدم محاسبة شخص وهو يستحق المحاسبة <span class="penalty-tag">تحذير</span></div>
+        <div class="rule-item internal">3 - محاسبة شخص بدون دلائل واضحه <span class="penalty-tag">تحذير</span></div>
+        <div class="rule-item internal">4 - الواسطة <span class="penalty-tag" style="background: red; color: white;">فصل من التيم</span></div>
+        <div class="rule-item internal">5 - التكبر على الأعضاء أو المشرفين <span class="penalty-tag">فصل من الإدارة</span></div>
+        <div class="rule-item internal">6 - فك باند عن صديق دون وجه حق <span class="penalty-tag">فصل مباشر + 2X عقوبة</span></div>
     </div>
 
     <div class="sub-header">قوانين السيرفر العامة</div>
@@ -164,15 +165,12 @@
 </div>
 
 <script>
-    // تغبيش الشاشة عند الخروج من المتصفح لزيادة الخصوصية
     window.addEventListener('blur', () => {
         document.getElementById('main-content').style.filter = "blur(20px)";
     });
     window.addEventListener('focus', () => {
         document.getElementById('main-content').style.filter = "blur(0px)";
     });
-
-    // منع زر الفأرة الأيمن واختصارات لوحة المفاتيح
     document.oncontextmenu = function() { return false; };
     document.onkeydown = function(e) {
         if (event.keyCode == 123 || (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74 || e.keyCode == 67)) || (e.ctrlKey && e.keyCode == 85)) {
@@ -183,4 +181,3 @@
 
 </body>
 </html>
-
