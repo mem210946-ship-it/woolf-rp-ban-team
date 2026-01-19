@@ -19,7 +19,17 @@
             padding: 0;
         }
 
-        /* الهيدر العلوي */
+        /* تنسيق الصورة المضافة */
+        .header-image {
+            width: 100%;
+            max-width: 600px; /* يمكنك تكبير أو تصغير الصورة من هنا */
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 102, 0, 0.2);
+        }
+
         .header {
             background: black;
             padding: 20px 5%;
@@ -35,10 +45,9 @@
             font-size: 24px;
         }
 
-        /* العنوان الرئيسي */
         .hero {
             text-align: center;
-            padding: 50px 0;
+            padding: 30px 0;
         }
 
         .hero h1 {
@@ -48,7 +57,6 @@
             text-transform: uppercase;
         }
 
-        /* الأزرار */
         .tabs {
             display: flex;
             justify-content: center;
@@ -71,7 +79,6 @@
             border-color: var(--orange);
         }
 
-        /* شبكة القوانين */
         .grid {
             display: none;
             width: 90%;
@@ -107,7 +114,6 @@
             color: #ff0000;
         }
 
-        /* التغبيش للحماية */
         #wrapper { transition: filter 0.3s; }
     </style>
 </head>
@@ -115,11 +121,12 @@
 
 <div class="header">
     <div class="logo">WC ROLEPLAY</div>
-    <div style="font-size: 14px; color: #888;">قوانين السيرفر</div>
 </div>
 
 <div id="wrapper">
     <div class="hero">
+        <img src="رابط_الصورة_هنا.jpg" alt="Logo" class="header-image">
+        
         <h1>WC ROLEPLAY</h1>
     </div>
 
@@ -131,48 +138,7 @@
     <div id="general" class="grid active">
         <div class="card"><span>1 - استخدام الثغرات</span><span class="tag">Warn 1</span></div>
         <div class="card"><span>2 - عدم الخوف على حياتك</span><span class="tag">Warn</span></div>
-        <div class="card"><span>3 - (VDM) الصدم العشوائي</span><span class="tag">Warn 2</span></div>
-        <div class="card"><span>4 - (RDM) القتل العشوائي</span><span class="tag">Warn 2</span></div>
-        <div class="card"><span>5 - فعل وهو غير متواجد</span><span class="tag">Warn</span></div>
-        <div class="card"><span>6 - القذف والشتم</span><span class="tag red">Banned Perm</span></div>
-        <div class="card"><span>7 - عدم احترام الجمس</span><span class="tag">Warn 2</span></div>
-        <div class="card"><span>8 - التدخل في سيناريو</span><span class="tag">Warn 1</span></div>
-        <div class="card"><span>9 - تشفير الألفاظ</span><span class="tag">Warn 1</span></div>
-        <div class="card"><span>10 - ايم اسست (هاك)</span><span class="tag red">Banned Perm</span></div>
-        <div class="card"><span>11 - الكذب على الجمس</span><span class="tag">Warn 2</span></div>
-        <div class="card"><span>12 - الخروج عن الـ RP</span><span class="tag">Warn</span></div>
-        <div class="card"><span>13 - القانون الذهبي</span><span class="tag">Warn 2</span></div>
-        <div class="card"><span>14 - نشر للاعضاء</span><span class="tag red">Banned Perm</span></div>
-        <div class="card"><span>15 - تهديد بسلاح بمكان آمن</span><span class="tag">Warn</span></div>
-        <div class="card"><span>16 - تدخل في شؤون إدارية</span><span class="tag">Warn 2</span></div>
-        <div class="card"><span>17 - إزعاج في الـ ايفري</span><span class="tag">Warn</span></div>
-        <div class="card"><span>18 - خروج وقت السيناريو</span><span class="tag">Warn 1</span></div>
-        <div class="card"><span>19 - عدم التوقف بـ 3 كفرات</span><span class="tag">Warn</span></div>
-        <div class="card"><span>20 - تعديل سيارة منقلبة</span><span class="tag">Warn</span></div>
-        <div class="card"><span>21 - رفع تكت بدون دليل</span><span class="tag">Warn</span></div>
-        <div class="card"><span>22 - فعل وهو مكلبش</span><span class="tag">Warn 1</span></div>
-        <div class="card"><span>23 - عدم الانصياع للجمس</span><span class="tag">Warn 2</span></div>
-        <div class="card"><span>24 - خطف/تهديد مكان آمن</span><span class="tag">Warn</span></div>
-        <div class="card"><span>25 - ميتاتاق (خارج/داخل)</span><span class="tag">Warn 2</span></div>
-        <div class="card"><span>26 - كفرات مدرعة</span><span class="tag">Warn 2</span></div>
-        <div class="card"><span>27 - التدبيل</span><span class="tag">Warn 2</span></div>
-        <div class="card"><span>28 - كلام وأنت مسقط</span><span class="tag">Warn 1</span></div>
-        <div class="card"><span>29 - استخدام شيء ليس معك</span><span class="tag">Warn 1</span></div>
-        <div class="card"><span>30 - إطلاق أثناء القيادة</span><span class="tag">Warn 1</span></div>
-        <div class="card"><span>31 - سلاح ثقيل بدون حقيبة</span><span class="tag red">باند شهر</span></div>
-        <div class="card"><span>32 - نقل معلومات (جاسوس)</span><span class="tag">Warn 3</span></div>
-        <div class="card"><span>33 - توازن الحوار والطلق</span><span class="tag">توجيه</span></div>
-        <div class="card"><span>34 - عدم تسجيل دخول الرحلة</span><span class="tag">1 Day</span></div>
-        <div class="card"><span>35 - عدم فتح الخريطة/أيديات</span><span class="tag">Warn 2</span></div>
-    </div>
-
-    <div id="durations" class="grid">
-        <div class="card"><span>Warn (تحذير بسيط)</span><span class="tag">1 Day</span></div>
-        <div class="card"><span>Warn 1</span><span class="tag">4 Days</span></div>
-        <div class="card"><span>Warn 2</span><span class="tag">8 Days</span></div>
-        <div class="card"><span>Warn 3</span><span class="tag">12 Days</span></div>
-        <div class="card"><span>عقوبة الإداري</span><span class="tag">2x Penalty</span></div>
-    </div>
+        </div>
 </div>
 
 <script>
@@ -182,10 +148,6 @@
         document.getElementById(tabId).classList.add('active');
         event.currentTarget.classList.add('active');
     }
-
-    // تغبيش تلقائي عند تصوير الشاشة أو الخروج
-    window.onblur = function() { document.getElementById('wrapper').style.filter = 'blur(50px)'; }
-    window.onfocus = function() { document.getElementById('wrapper').style.filter = 'blur(0px)'; }
 </script>
 
 </body>
