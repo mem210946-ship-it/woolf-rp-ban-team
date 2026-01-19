@@ -7,8 +7,8 @@
     <style>
         :root {
             --primary-orange: #ff6600;
-            --dark-bg: #121212;
-            --card-bg: #1a1a1a;
+            --dark-bg: #0a0a0a;
+            --card-bg: #161616;
         }
 
         * {
@@ -19,77 +19,57 @@
 
         body {
             background-color: var(--dark-bg);
-            /* إضافة النقوش الخلفية كما في الصورة */
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(255, 102, 0, 0.05) 0%, transparent 20%),
-                radial-gradient(circle at 90% 80%, rgba(255, 102, 0, 0.05) 0%, transparent 20%);
+            background-image: radial-gradient(circle at 50% -20%, #331a00 0%, transparent 50%);
             color: white;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            min-height: 100vh;
         }
 
-        /* الهيدر العلوي كما في الصورة */
+        /* الهيدر العلوي */
         .top-nav {
             width: 100%;
-            background: rgba(0,0,0,0.8);
-            padding: 10px 5%;
+            background: rgba(0,0,0,0.9);
+            padding: 15px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 2px solid var(--primary-orange);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
-        .logo-text {
-            color: var(--primary-orange);
-            font-weight: 900;
-            font-size: 20px;
-            letter-spacing: 1px;
-        }
-
-        /* عنوان الموقع الكبير */
         .hero-section {
             text-align: center;
-            padding: 60px 20px;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.3), transparent);
-            width: 100%;
+            padding: 40px 20px;
         }
 
         .hero-title {
-            font-size: clamp(40px, 8vw, 70px);
+            font-size: clamp(35px, 8vw, 65px);
             font-weight: 900;
             color: var(--primary-orange);
-            text-transform: uppercase;
             margin: 0;
-            text-shadow: 0 0 20px rgba(255, 102, 0, 0.3);
+            text-shadow: 0 0 30px rgba(255, 102, 0, 0.4);
         }
 
-        .hero-subtitle {
-            color: #888;
-            font-size: 14px;
-            margin-top: 10px;
-        }
-
-        /* شريط الأقسام (Tabs) */
+        /* نظام الأزرار (Tabs) */
         .tabs-container {
             display: flex;
             gap: 10px;
-            margin-bottom: 30px;
-            overflow-x: auto;
-            width: 100%;
             justify-content: center;
-            padding: 10px;
+            margin-bottom: 30px;
+            padding: 0 10px;
+            flex-wrap: wrap;
         }
 
         .tab-btn {
             background: var(--card-bg);
-            border: 1px solid rgba(255,102,0,0.3);
-            color: white;
-            padding: 10px 25px;
-            border-radius: 4px;
+            border: 1px solid rgba(255,102,0,0.4);
+            color: #aaa;
+            padding: 12px 25px;
+            border-radius: 5px;
             cursor: pointer;
             font-weight: bold;
             transition: 0.3s;
@@ -98,107 +78,127 @@
         .tab-btn.active {
             background: var(--primary-orange);
             color: black;
+            border-color: var(--primary-orange);
+            box-shadow: 0 0 15px rgba(255, 102, 0, 0.4);
         }
 
-        /* شبكة القوانين - مظهر الجداول في الصورة */
-        .rules-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 15px;
+        /* محتوى القوانين */
+        .content-section {
+            display: none; /* مخفي افتراضياً */
             width: 90%;
-            max-width: 1200px;
-            margin-bottom: 50px;
+            max-width: 1100px;
+            margin: 0 auto 50px auto;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 15px;
+        }
+
+        .content-section.active {
+            display: grid; /* يظهر فقط عند التفعيل */
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .rule-card {
             background: var(--card-bg);
-            border-left: 4px solid var(--primary-orange);
-            padding: 15px 20px;
+            border-right: 4px solid var(--primary-orange);
+            padding: 18px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: transform 0.2s;
-        }
-
-        .rule-card:hover {
-            transform: scale(1.02);
-            background: #222;
-        }
-
-        .rule-desc {
-            font-size: 16px;
-            font-weight: 500;
+            border-radius: 4px;
         }
 
         .rule-action {
             background: rgba(255,102,0,0.1);
             color: var(--primary-orange);
-            padding: 5px 12px;
+            padding: 4px 10px;
             border-radius: 4px;
-            font-size: 12px;
+            font-size: 13px;
             font-weight: bold;
             border: 1px solid var(--primary-orange);
-            text-transform: uppercase;
+            white-space: nowrap;
         }
 
-        .rule-action.perm {
-            background: #ff0000;
-            color: white;
-            border: none;
-        }
+        .rule-action.red { background: #660000; color: #ff4444; border-color: #ff4444; }
 
         /* حماية التغبيش */
-        #main-wrapper { transition: filter 0.5s ease; }
+        #main-wrapper { transition: filter 0.4s; }
     </style>
 </head>
 <body>
 
 <div class="top-nav">
-    <div class="logo-text">WC ROLEPLAY</div>
-    <div style="font-size: 12px; color: #666;">نظام الإدارة والرقابة العام</div>
+    <div style="color: var(--primary-orange); font-weight: 900;">WC ROLEPLAY</div>
+    <div style="font-size: 12px;">نظام الإدارة الرسمي</div>
 </div>
 
-<div id="main-wrapper" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
-    
+<div id="main-wrapper">
     <div class="hero-section">
         <h1 class="hero-title">WC ROLEPLAY</h1>
-        <div class="hero-subtitle">النظام الأساسي للقوانين والجزاءات لعام 2026</div>
     </div>
 
     <div class="tabs-container">
-        <div class="tab-btn active">قوانين التيم</div>
-        <div class="tab-btn">قوانين عامة</div>
-        <div class="tab-btn">نظام مدد العقوبات</div>
+        <button class="tab-btn active" onclick="showTab('team')">قوانين التيم</button>
+        <button class="tab-btn" onclick="showTab('general')">قوانين عامة</button>
+        <button class="tab-btn" onclick="showTab('durations')">مدد العقوبات</button>
     </div>
 
-    <div class="rules-grid">
-        <div class="rule-card"><span class="rule-desc">1 - عدم كتابة الأستبيان بشكل صحيح</span><span class="rule-action">تحذير</span></div>
-        <div class="rule-card"><span class="rule-desc">2 - عدم محاسبة شخص يستحق</span><span class="rule-action">تحذير</span></div>
-        <div class="rule-card"><span class="rule-desc">3 - محاسبة شخص بدون دلائل</span><span class="rule-action">تحذير</span></div>
-        <div class="rule-card"><span class="rule-desc">4 - الواسطة</span><span class="rule-action perm">فصل نهائي</span></div>
-        <div class="rule-card"><span class="rule-desc">5 - فك باند صديق دون حق</span><span class="rule-action perm">فصل + 2X</span></div>
-        
-        <div class="rule-card"><span class="rule-desc">6 - استخدام الثغرات</span><span class="rule-action">Warn 1</span></div>
-        <div class="rule-card"><span class="rule-desc">7 - القذف والشتم</span><span class="rule-action perm">Banned Perm</span></div>
-        <div class="rule-card"><span class="rule-desc">8 - ايم اسست</span><span class="rule-action perm">Banned Perm</span></div>
-        <div class="rule-card"><span class="rule-desc">9 - عدم احترام الجمس</span><span class="rule-action">Warn 2</span></div>
-        <div class="rule-card"><span class="rule-desc">10 - الخروج أثناء السيناريو</span><span class="rule-action">Warn 1</span></div>
+    <div id="team" class="content-section active">
+        <div class="rule-card"><span>1 - عدم كتابة الأستبيان بشكل صحيح</span><span class="rule-action">تحذير</span></div>
+        <div class="rule-card"><span>2 - عدم محاسبة شخص وهو يستحق</span><span class="rule-action">تحذير</span></div>
+        <div class="rule-card"><span>3 - محاسبة شخص بدون دلائل</span><span class="rule-action">تحذير</span></div>
+        <div class="rule-card"><span>4 - الواسطة</span><span class="rule-action red">فصل نهائي</span></div>
+        <div class="rule-card"><span>5 - فك باند عن صديق دون حق</span><span class="rule-action red">فصل + 2X</span></div>
+    </div>
+
+    <div id="general" class="content-section">
+        <div class="rule-card"><span>1 - استخدام الثغرات</span><span class="rule-action">Warn 1</span></div>
+        <div class="rule-card"><span>2 - عدم الخوف على حياتك</span><span class="rule-action">Warn</span></div>
+        <div class="rule-card"><span>3 - القذف والشتم</span><span class="rule-action red">Perm Banned</span></div>
+        <div class="rule-card"><span>4 - ايم اسست (هاك)</span><span class="rule-action red">Perm Banned</span></div>
+        <div class="rule-card"><span>5 - (VDM) صدم عشوائي</span><span class="rule-action">Warn 2</span></div>
+        <div class="rule-card"><span>6 - (RDM) قتل عشوائي</span><span class="rule-action">Warn 2</span></div>
+        <div class="rule-card"><span>7 - عدم احترام الجمس</span><span class="rule-action">Warn 2</span></div>
+        <div class="rule-card"><span>8 - التدخل في سيناريو</span><span class="rule-action">Warn 1</span></div>
+        <div class="rule-card"><span>9 - الكذب على الجمس</span><span class="rule-action">Warn 2</span></div>
+        <div class="rule-card"><span>10 - الخروج أثناء السيناريو</span><span class="rule-action">Warn 1</span></div>
+        <div style="grid-column: 1/-1; text-align: center; color: #555;">... باقي الـ 35 قانوناً تظهر هنا ...</div>
+    </div>
+
+    <div id="durations" class="content-section">
+        <div class="rule-card"><span>Warn (تحذير بسيط)</span><span class="rule-action">يوم واحد</span></div>
+        <div class="rule-card"><span>Warn 1</span><span class="rule-action">4 أيام</span></div>
+        <div class="rule-card"><span>Warn 2</span><span class="rule-action">8 أيام</span></div>
+        <div class="rule-card"><span>Warn 3</span><span class="rule-action">12 يوم</span></div>
+        <div class="rule-card"><span>عقوبة الإداري</span><span class="rule-action">2X العقوبة</span></div>
     </div>
 </div>
 
 <script>
-    // الحماية من التصوير والتغبيش
-    window.addEventListener('blur', () => {
-        document.getElementById('main-wrapper').style.filter = "blur(50px)";
-    });
-    window.addEventListener('focus', () => {
-        document.getElementById('main-wrapper').style.filter = "blur(0px)";
-    });
+    // وظيفة التنقل بين الأقسام
+    function showTab(tabId) {
+        // إخفاء كل الأقسام
+        document.querySelectorAll('.content-section').forEach(section => {
+            section.classList.remove('active');
+        });
+        // إزالة اللون من كل الأزرار
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        
+        // إظهار القسم المختار
+        document.getElementById(tabId).classList.add('active');
+        // تلوين الزر المختار
+        event.currentTarget.classList.add('active');
+    }
 
-    // منع الاختصارات
-    document.addEventListener('keydown', function(e) {
-        if (e.ctrlKey || e.keyCode == 123) e.preventDefault();
-    });
+    // تغبيش الشاشة للحماية
+    window.addEventListener('blur', () => { document.getElementById('main-wrapper').style.filter = "blur(40px)"; });
+    window.addEventListener('focus', () => { document.getElementById('main-wrapper').style.filter = "blur(0px)"; });
 </script>
 
 </body>
