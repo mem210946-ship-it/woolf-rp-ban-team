@@ -1,192 +1,31 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WC ROLEPLAY</title>
+    <title>H2cked</title>
     <style>
-        :root {
-            --orange: #ff6600;
-            --bg: #0d0d0d;
-            --card: #141414;
-        }
-
         body {
-            background-color: var(--bg);
-            color: white;
-            font-family: Arial, sans-serif;
+            background-color: red; /* لون الخلفية حمراء */
             margin: 0;
-            padding: 0;
-        }
-
-        /* الهيدر العلوي */
-        .header {
-            background: black;
-            padding: 20px 5%;
-            border-bottom: 2px solid var(--orange);
+            height: 100vh;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            justify-content: center; /* توسيط أفقي */
+            align-items: center;    /* توسيط عمودي */
+            font-family: 'Arial Black', sans-serif;
+            overflow: hidden;
         }
 
-        .logo {
-            color: var(--orange);
-            font-weight: bold;
-            font-size: 24px;
-        }
-
-        /* العنوان الرئيسي */
-        .hero {
-            text-align: center;
-            padding: 50px 0;
-        }
-
-        .hero h1 {
-            font-size: 60px;
-            color: var(--orange);
-            margin: 0;
+        h1 {
+            color: black; /* لون النص أسود */
+            font-size: 4rem;
             text-transform: uppercase;
         }
-
-        /* الأزرار */
-        .tabs {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 30px;
-        }
-
-        .tab {
-            background: var(--card);
-            border: 1px solid #333;
-            color: white;
-            padding: 10px 30px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        .tab.active {
-            background: var(--orange);
-            color: black;
-            border-color: var(--orange);
-        }
-
-        /* شبكة القوانين */
-        .grid {
-            display: none;
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto 50px auto;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 15px;
-        }
-
-        .grid.active {
-            display: grid;
-        }
-
-        .card {
-            background: var(--card);
-            border-right: 5px solid var(--orange);
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .tag {
-            border: 1px solid var(--orange);
-            color: var(--orange);
-            padding: 4px 8px;
-            font-size: 12px;
-            border-radius: 3px;
-        }
-
-        .tag.red {
-            border-color: #ff0000;
-            color: #ff0000;
-        }
-
-        /* التغبيش للحماية */
-        #wrapper { transition: filter 0.3s; }
     </style>
 </head>
 <body>
 
-<div class="header">
-    <div class="logo">WC ROLEPLAY</div>
-    <div style="font-size: 14px; color: #888;">قوانين السيرفر</div>
-</div>
-
-<div id="wrapper">
-    <div class="hero">
-        <h1>WC ROLEPLAY</h1>
-    </div>
-
-    <div class="tabs">
-        <button class="tab active" onclick="openTab('general')">قوانين عامة</button>
-        <button class="tab" onclick="openTab('durations')">مدد العقوبات</button>
-    </div>
-
-    <div id="general" class="grid active">
-        <div class="card"><span>1 - استخدام الثغرات</span><span class="tag">Warn 1</span></div>
-        <div class="card"><span>2 - عدم الخوف على حياتك</span><span class="tag">Warn</span></div>
-        <div class="card"><span>3 - (VDM) الصدم العشوائي</span><span class="tag">Warn 2</span></div>
-        <div class="card"><span>4 - (RDM) القتل العشوائي</span><span class="tag">Warn 2</span></div>
-        <div class="card"><span>5 - فعل وهو غير متواجد</span><span class="tag">Warn</span></div>
-        <div class="card"><span>6 - القذف والشتم</span><span class="tag red">Banned Perm</span></div>
-        <div class="card"><span>7 - عدم احترام الجمس</span><span class="tag">Warn 2</span></div>
-        <div class="card"><span>8 - التدخل في سيناريو</span><span class="tag">Warn 1</span></div>
-        <div class="card"><span>9 - تشفير الألفاظ</span><span class="tag">Warn 1</span></div>
-        <div class="card"><span>10 - ايم اسست (هاك)</span><span class="tag red">Banned Perm</span></div>
-        <div class="card"><span>11 - الكذب على الجمس</span><span class="tag">Warn 2</span></div>
-        <div class="card"><span>12 - الخروج عن الـ RP</span><span class="tag">Warn</span></div>
-        <div class="card"><span>13 - القانون الذهبي</span><span class="tag">Warn 2</span></div>
-        <div class="card"><span>14 - نشر للاعضاء</span><span class="tag red">Banned Perm</span></div>
-        <div class="card"><span>15 - تهديد بسلاح بمكان آمن</span><span class="tag">Warn</span></div>
-        <div class="card"><span>16 - تدخل في شؤون إدارية</span><span class="tag">Warn 2</span></div>
-        <div class="card"><span>17 - إزعاج في الـ ايفري</span><span class="tag">Warn</span></div>
-        <div class="card"><span>18 - خروج وقت السيناريو</span><span class="tag">Warn 1</span></div>
-        <div class="card"><span>19 - عدم التوقف بـ 3 كفرات</span><span class="tag">Warn</span></div>
-        <div class="card"><span>20 - تعديل سيارة منقلبة</span><span class="tag">Warn</span></div>
-        <div class="card"><span>21 - رفع تكت بدون دليل</span><span class="tag">Warn</span></div>
-        <div class="card"><span>22 - فعل وهو مكلبش</span><span class="tag">Warn 1</span></div>
-        <div class="card"><span>23 - عدم الانصياع للجمس</span><span class="tag">Warn 2</span></div>
-        <div class="card"><span>24 - خطف/تهديد مكان آمن</span><span class="tag">Warn</span></div>
-        <div class="card"><span>25 - ميتاتاق (خارج/داخل)</span><span class="tag">Warn 2</span></div>
-        <div class="card"><span>26 - كفرات مدرعة</span><span class="tag">Warn 2</span></div>
-        <div class="card"><span>27 - التدبيل</span><span class="tag">Warn 2</span></div>
-        <div class="card"><span>28 - كلام وأنت مسقط</span><span class="tag">Warn 1</span></div>
-        <div class="card"><span>29 - استخدام شيء ليس معك</span><span class="tag">Warn 1</span></div>
-        <div class="card"><span>30 - إطلاق أثناء القيادة</span><span class="tag">Warn 1</span></div>
-        <div class="card"><span>31 - سلاح ثقيل بدون حقيبة</span><span class="tag red">باند شهر</span></div>
-        <div class="card"><span>32 - نقل معلومات (جاسوس)</span><span class="tag">Warn 3</span></div>
-        <div class="card"><span>33 - توازن الحوار والطلق</span><span class="tag">توجيه</span></div>
-        <div class="card"><span>34 - عدم تسجيل دخول الرحلة</span><span class="tag">1 Day</span></div>
-        <div class="card"><span>35 - فتح الخريطة/أيديات</span><span class="tag">Warn 2</span></div>
-    </div>
-
-    <div id="durations" class="grid">
-        <div class="card"><span>Warn (تحذير بسيط)</span><span class="tag">1 Day</span></div>
-        <div class="card"><span>Warn 1</span><span class="tag">4 Days</span></div>
-        <div class="card"><span>Warn 2</span><span class="tag">8 Days</span></div>
-        <div class="card"><span>Warn 3</span><span class="tag">12 Days</span></div>
-        <div class="card"><span>عقوبة الإداري</span><span class="tag">2x Penalty</span></div>
-    </div>
-</div>
-
-<script>
-    function openTab(tabId) {
-        document.querySelectorAll('.grid').forEach(g => g.classList.remove('active'));
-        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-        document.getElementById(tabId).classList.add('active');
-        event.currentTarget.classList.add('active');
-    }
-
-    // تغبيش تلقائي عند تصوير الشاشة أو الخروج
-    window.onblur = function() { document.getElementById('wrapper').style.filter = 'blur(50px)'; }
-    window.onfocus = function() { document.getElementById('wrapper').style.filter = 'blur(0px)'; }
-</script>
+    <h1>h2cked by old</h1>
 
 </body>
 </html>
