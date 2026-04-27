@@ -6,7 +6,8 @@
     <title>WC ROLEPLAY</title>
     <style>
         :root {
-            --orange: #ff6600;
+            --red: #ff0000;
+            --white-metallic: #b5b5b5;
             --bg: #0d0d0d;
             --card: #141414;
         }
@@ -23,16 +24,28 @@
         .header {
             background: black;
             padding: 20px 5%;
-            border-bottom: 2px solid var(--orange);
+            border-bottom: 2px solid var(--red);
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            color: var(--orange);
+            color: var(--red);
             font-weight: bold;
             font-size: 24px;
+        }
+
+        /* إضافة الصورة إلى الموقع */
+        .image-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .hero-image {
+            max-width: 100%;
+            height: auto;
         }
 
         /* العنوان الرئيسي */
@@ -43,7 +56,7 @@
 
         .hero h1 {
             font-size: 60px;
-            color: var(--orange);
+            color: var(--red);
             margin: 0;
             text-transform: uppercase;
         }
@@ -66,9 +79,9 @@
         }
 
         .tab.active {
-            background: var(--orange);
+            background: var(--red);
             color: black;
-            border-color: var(--orange);
+            border-color: var(--red);
         }
 
         /* شبكة القوانين */
@@ -87,7 +100,7 @@
 
         .card {
             background: var(--card);
-            border-right: 5px solid var(--orange);
+            border-right: 5px solid var(--red);
             padding: 20px;
             display: flex;
             justify-content: space-between;
@@ -95,8 +108,8 @@
         }
 
         .tag {
-            border: 1px solid var(--orange);
-            color: var(--orange);
+            border: 1px solid var(--red);
+            color: var(--red);
             padding: 4px 8px;
             font-size: 12px;
             border-radius: 3px;
@@ -119,6 +132,10 @@
 </div>
 
 <div id="wrapper">
+    <div class="image-container">
+        <img src="input_file_0.png" alt="WR Logo" class="hero-image">
+    </div>
+
     <div class="hero">
         <h1>WC ROLEPLAY</h1>
     </div>
