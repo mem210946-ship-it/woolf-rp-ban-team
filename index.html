@@ -18,7 +18,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            user-select: none;
+            user-select: none; /* منع النسخ */
         }
 
         /* الهيدر */
@@ -136,7 +136,7 @@
 
 <div id="wrapper">
     <div class="image-container">
-        <img src="input_file_0.png" class="hero-image" alt="WC Logo">
+        <img src="1000036277.png" class="hero-image" alt="WC Logo">
     </div>
 
     <div class="search-container">
@@ -211,13 +211,8 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Dmitry</td>
-                        <td style="color:var(--red); font-weight:bold;">Ban Manager</td>
-                        <td><span class="discord-tag">altmas0</span></td>
-                    </tr>
-                    <tr>
                         <td>Altmas</td>
-                        <td>Ban Manager</td>
+                        <td style="color:var(--red); font-weight:bold;">Ban Manager</td>
                         <td><span class="discord-tag">altmas0</span></td>
                     </tr>
                 </tbody>
@@ -230,9 +225,8 @@
     function filterRules() {
         let input = document.getElementById('searchBox').value.toLowerCase();
         let cards = document.getElementsByClassName('rule');
-        if(input.length > 0) {
-            openTab('general');
-        }
+        // الانتقال للتبويب الرئيسي عند البحث
+        if(input.length > 0) openTab('general');
         for (let card of cards) {
             let text = card.innerText.toLowerCase();
             card.style.display = text.includes(input) ? "flex" : "none";
@@ -248,6 +242,7 @@
         }
     }
 
+    // تأثير التغبيش عند الخروج من النافذة
     window.onblur = () => document.getElementById('wrapper').style.filter = 'blur(40px)';
     window.onfocus = () => document.getElementById('wrapper').style.filter = 'blur(0px)';
 </script>
