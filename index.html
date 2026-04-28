@@ -18,7 +18,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            user-select: none; /* حماية من النسخ */
+            user-select: none;
         }
 
         /* الهيدر */
@@ -131,7 +131,7 @@
 
 <div class="header">
     <div class="logo">WC ROLEPLAY</div>
-    <div style="font-size: 13px; color: #aaa;">نظام الإدارة والقوانين v3.0</div>
+    <div style="font-size: 13px; color: #aaa;">نظام الإدارة والقوانين</div>
 </div>
 
 <div id="wrapper">
@@ -216,14 +216,9 @@
                         <td><span class="discord-tag">altmas0</span></td>
                     </tr>
                     <tr>
-                        <td>Wolf</td>
-                        <td>Senior Admin</td>
-                        <td><span class="discord-tag">wolf.rp</span></td>
-                    </tr>
-                    <tr>
-                        <td>Ghost</td>
-                        <td>Ban Team</td>
-                        <td><span class="discord-tag">gh_01</span></td>
+                        <td>Altmas</td>
+                        <td>Ban Manager</td>
+                        <td><span class="discord-tag">altmas0</span></td>
                     </tr>
                 </tbody>
             </table>
@@ -235,7 +230,9 @@
     function filterRules() {
         let input = document.getElementById('searchBox').value.toLowerCase();
         let cards = document.getElementsByClassName('rule');
-        if(input.length > 0) openTab('general');
+        if(input.length > 0) {
+            openTab('general');
+        }
         for (let card of cards) {
             let text = card.innerText.toLowerCase();
             card.style.display = text.includes(input) ? "flex" : "none";
@@ -246,7 +243,9 @@
         document.querySelectorAll('.grid').forEach(g => g.classList.remove('active'));
         document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
         document.getElementById(tabId).classList.add('active');
-        if(event && event.currentTarget) event.currentTarget.classList.add('active');
+        if(event && event.currentTarget) {
+            event.currentTarget.classList.add('active');
+        }
     }
 
     window.onblur = () => document.getElementById('wrapper').style.filter = 'blur(40px)';
