@@ -18,7 +18,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            user-select: none; /* منع النسخ */
+            user-select: none;
         }
 
         /* الهيدر */
@@ -57,7 +57,7 @@
         }
 
         .image-container { text-align: center; margin: 10px 0; }
-        .hero-image { max-width: 250px; filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.3)); }
+        .hero-image { max-width: 320px; filter: drop-shadow(0 0 15px rgba(255, 0, 0, 0.4)); }
 
         /* التبويبات */
         .tabs { display: flex; justify-content: center; gap: 10px; margin: 20px 0; flex-wrap: wrap; }
@@ -136,7 +136,7 @@
 
 <div id="wrapper">
     <div class="image-container">
-        <img src="1000036277.png" class="hero-image" alt="WC Logo">
+        <img src="1000036277.png" class="hero-image" alt="WR Logo">
     </div>
 
     <div class="search-container">
@@ -211,7 +211,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Altmas</td>
+                        <td>Dmitry</td>
                         <td style="color:var(--red); font-weight:bold;">Ban Manager</td>
                         <td><span class="discord-tag">altmas0</span></td>
                     </tr>
@@ -225,7 +225,6 @@
     function filterRules() {
         let input = document.getElementById('searchBox').value.toLowerCase();
         let cards = document.getElementsByClassName('rule');
-        // الانتقال للتبويب الرئيسي عند البحث
         if(input.length > 0) openTab('general');
         for (let card of cards) {
             let text = card.innerText.toLowerCase();
@@ -242,7 +241,6 @@
         }
     }
 
-    // تأثير التغبيش عند الخروج من النافذة
     window.onblur = () => document.getElementById('wrapper').style.filter = 'blur(40px)';
     window.onfocus = () => document.getElementById('wrapper').style.filter = 'blur(0px)';
 </script>
