@@ -21,7 +21,6 @@
             user-select: none;
         }
 
-        /* الهيدر العلوي - ثابت في كل الصفحات */
         .header {
             background: black;
             padding: 10px 5%;
@@ -36,23 +35,23 @@
 
         .logo-text { color: var(--red); font-weight: bold; font-size: 20px; letter-spacing: 1px; }
 
-        /* منطقة الصورة العلوية الثابتة في كل الصفحات */
+        /* حاوية البانر العلوي */
         .top-image-container {
             width: 100%;
             text-align: center;
             background-color: #000;
-            padding: 10px 0;
+            padding: 0; /* الغاء الحواف لضمان ظهور البانر بشكل كامل */
             border-bottom: 3px solid var(--red);
+            line-height: 0;
         }
 
         .main-banner {
-            max-width: 100%;
+            width: 100%;
+            max-width: 1000px; /* عرض مناسب للبانر */
             height: auto;
-            max-height: 250px; /* للتحكم في طول الصورة */
             filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.3));
         }
 
-        /* البحث التفاعلي */
         .search-container {
             text-align: center;
             padding: 25px 20px;
@@ -70,10 +69,8 @@
             outline: none;
             font-size: 16px;
             text-align: center;
-            box-shadow: 0 0 15px rgba(255, 0, 0, 0.1);
         }
 
-        /* التبويبات */
         .tabs { display: flex; justify-content: center; gap: 10px; margin: 20px 0; flex-wrap: wrap; }
         .tab {
             background: var(--card);
@@ -87,7 +84,6 @@
         }
         .tab.active { background: var(--red); border-color: var(--red); }
 
-        /* الشبكة والبطاقات */
         .grid {
             display: none;
             width: 90%;
@@ -112,14 +108,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: 0.3s;
         }
-        .card:hover { background: var(--accent); transform: translateY(-3px); }
 
         .tag { border: 1px solid var(--red); color: var(--red); padding: 4px 8px; font-size: 12px; border-radius: 3px; font-weight: bold; }
         .tag.red-full { background: var(--red); color: white; }
 
-        /* جدول الإدارة */
         .table-container {
             overflow-x: auto;
             background: var(--card);
@@ -149,7 +142,7 @@
 </div>
 
 <div class="top-image-container">
-    <img src="DurationBanWR1.png" class="main-banner" alt="Duration Ban WR">
+    <img src="1000036427.jpg" class="main-banner" alt="Duration Ban Banner">
 </div>
 
 <div id="wrapper">
@@ -169,37 +162,6 @@
             <div class="card rule"><span>2 - عدم الخوف على حياتك</span><span class="tag">Warn</span></div>
             <div class="card rule"><span>3 - VDM الصدم العشوائي</span><span class="tag">Warn 2</span></div>
             <div class="card rule"><span>4 - RDM القتل العشوائي</span><span class="tag">Warn 2</span></div>
-            <div class="card rule"><span>5 - فعل وهو غير متواجد</span><span class="tag">Warn</span></div>
-            <div class="card rule"><span>6 - القذف والشتم</span><span class="tag red-full">Banned Perm</span></div>
-            <div class="card rule"><span>7 - عدم احترام الجمس</span><span class="tag">Warn 2</span></div>
-            <div class="card rule"><span>8 - التدخل في سيناريو</span><span class="tag">Warn 1</span></div>
-            <div class="card rule"><span>9 - تشفير الألفاظ</span><span class="tag">Warn 1</span></div>
-            <div class="card rule"><span>10 - ايم اسست هاك</span><span class="tag red-full">Banned Perm</span></div>
-            <div class="card rule"><span>11 - الكذب على الجمس</span><span class="tag">Warn 2</span></div>
-            <div class="card rule"><span>12 - الخروج عن الـ RP</span><span class="tag">Warn</span></div>
-            <div class="card rule"><span>13 - القانون الذهبي</span><span class="tag">Warn 2</span></div>
-            <div class="card rule"><span>14 - نشر للاعضاء</span><span class="tag red-full">Banned Perm</span></div>
-            <div class="card rule"><span>15 - تهديد بسلاح بمكان آمن</span><span class="tag">Warn</span></div>
-            <div class="card rule"><span>16 - تدخل في شؤون إدارية</span><span class="tag">Warn 2</span></div>
-            <div class="card rule"><span>17 - إزعاج في الـ ايفري</span><span class="tag">Warn</span></div>
-            <div class="card rule"><span>18 - خروج وقت السيناريو</span><span class="tag">Warn 1</span></div>
-            <div class="card rule"><span>19 - عدم التوقف بـ 3 كفرات</span><span class="tag">Warn</span></div>
-            <div class="card rule"><span>20 - تعديل سيارة منقلبة</span><span class="tag">Warn</span></div>
-            <div class="card rule"><span>21 - رفع تكت بدون دليل</span><span class="tag">Warn</span></div>
-            <div class="card rule"><span>22 - فعل وهو مكلبش</span><span class="tag">Warn 1</span></div>
-            <div class="card rule"><span>23 - عدم الانصياع للجمس</span><span class="tag">Warn 2</span></div>
-            <div class="card rule"><span>24 - خطف تهديد مكان آمن</span><span class="tag">Warn</span></div>
-            <div class="card rule"><span>25 - ميتاتاق خارج داخل</span><span class="tag">Warn 2</span></div>
-            <div class="card rule"><span>26 - كفرات مدرعة</span><span class="tag">Warn 2</span></div>
-            <div class="card rule"><span>27 - التدبيل</span><span class="tag">Warn 2</span></div>
-            <div class="card rule"><span>28 - كلام وأنت مسقط</span><span class="tag">Warn 1</span></div>
-            <div class="card rule"><span>29 - استخدام شيء ليس معك</span><span class="tag">Warn 1</span></div>
-            <div class="card rule"><span>30 - إطلاق أثناء القيادة</span><span class="tag">Warn 1</span></div>
-            <div class="card rule"><span>31 - سلاح ثقيل بدون حقيبة</span><span class="tag red-full">باند شهر</span></div>
-            <div class="card rule"><span>32 - نقل معلومات جاسوس</span><span class="tag">Warn 3</span></div>
-            <div class="card rule"><span>33 - توازن الحوار والطلق</span><span class="tag">توجيه</span></div>
-            <div class="card rule"><span>34 - عدم تسجيل دخول الرحلة</span><span class="tag">1 Day</span></div>
-            <div class="card rule"><span>35 - عدم فتح الخريطة أيديات</span><span class="tag">Warn 2</span></div>
             <div class="card rule"><span>36 - سرقة ميزانية الدولة</span><span class="tag">Warn 2</span></div>
         </div>
     </div>
